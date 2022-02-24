@@ -88,7 +88,6 @@ public class Main {
 			case 8:
 				System.exit(0);
 				break;
-			case -1:
 			default:
 				break;
 		}
