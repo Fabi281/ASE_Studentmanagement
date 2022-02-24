@@ -19,7 +19,7 @@ public class PhoneNumberTest {
 	public void testFormatInternational() {
 		PhoneNumber phone = new PhoneNumber("01234", "56789", "DE");
 		String expected = "+49-1234-56789";
-		assertEquals(expected, phone.format());
+		assertEquals(expected, phone.formatInternational());
 	}
 
 }
