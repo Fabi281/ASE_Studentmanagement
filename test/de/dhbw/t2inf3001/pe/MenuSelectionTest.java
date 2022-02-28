@@ -32,7 +32,6 @@ public class MenuSelectionTest {
 		String actual = out.toString();
 		String expected = "Invalid input!";
 
-		boolean test = actual.contains(expected);
-		assertTrue(test);
+		assertTrue(actual.contains(expected));
 	}
 }
