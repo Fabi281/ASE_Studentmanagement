@@ -11,7 +11,7 @@ public class AddressTest {
 	@Test
 	public void testFormat() {
 		Address address = new Address("Finkenweg", "1", "Berlin", "12345", "DE");
-		String expected = "Finkenweg 1\n12345 Berlin";
+		String expected = "Finkenweg 1\n12345 Berlin".replaceAll("\\n|\\r\\n", System.getProperty("line.separator")); // To make test platform-independent
 		assertEquals(expected, address.format());
 	}
 
