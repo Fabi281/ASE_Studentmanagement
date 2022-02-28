@@ -19,4 +19,29 @@ public class IDTest {
 		assertEquals(expected, Main.processMenuSelection(1, null).response);
 	}
 
+	@Test
+	public void testValidInput() {
+
+		//This should be a valid ID: 1, 2 or 3
+		 String validId = "1";
+		 System.setIn(new ByteArrayInputStream(validId.getBytes()));
+		 Student expectedStudent = new Student(validId);
+		 String expected = "Successfully selected " + expectedStudent.info();
+
+		 assertEquals(expected, Main.processMenuSelection(1, expectedStudent).response);
+
+	}
+
+	@Test
+	public void testInvalidInput() {
+
+		//This should ne a invalid ID
+		 String validId = "4";
+		 System.setIn(new ByteArrayInputStream(validId.getBytes()));
+		 String expected = "This ID doesn't exist!";
+
+		 assertEquals(expected, Main.processMenuSelection(1, null).response);
+
+	}
+
 }
