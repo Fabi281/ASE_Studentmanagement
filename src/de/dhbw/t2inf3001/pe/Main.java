@@ -9,7 +9,7 @@ public class Main {
 	private static final String INVALID_INPUT = "Invalid input!";
 	private static final String NONEXISTENT_ID = "This ID doesn't exist!";
 
-	private static class MenuResult {
+	static class MenuResult {
 		String response = null;
 		Student newStudent = null;
 		boolean finished = false;
@@ -47,12 +47,12 @@ public class Main {
 		cin.close();
 	}
 
-	private static int readIntInput() throws IOException, NumberFormatException{
+	static int readIntInput() throws IOException, NumberFormatException{
 		String input = cin.readLine();
 		return Integer.parseInt(input);
 	}
 
-	private static MenuResult processMenuSelection(int action, Student selectedStudent) {
+	static MenuResult processMenuSelection(int action, Student selectedStudent) {
 		MenuResult result = new MenuResult();
 		switch (action) {
 			case 1:
@@ -89,6 +89,7 @@ public class Main {
 				System.exit(0);
 				break;
 			default:
+				System.out.println(INVALID_INPUT);
 				break;
 		}
 

@@ -4,8 +4,6 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import de.dhbw.t2inf3001.pe.Address;
-
 public class AddressTest {
 
 	@Test
