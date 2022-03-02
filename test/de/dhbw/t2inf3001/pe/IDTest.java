@@ -20,7 +20,7 @@ public class IDTest {
 	}
 
 	@Test
-	public void testValidInput() {
+	public void testValidInput() throws Exception {
 
 		//This should be a valid ID: 1, 2 or 3
 		 String validId = "1";
@@ -28,12 +28,12 @@ public class IDTest {
 		 Student expectedStudent = new Student(validId);
 		 String expected = "Successfully selected " + expectedStudent.info();
 
-		 assertEquals(expected, Main.processMenuSelection(1, expectedStudent).response);
+		 assertEquals(expected, Main.processMenuSelection(1, null).response);
 
 	}
 
 	@Test
-	public void testInvalidInput() {
+	public void testInvalidInput() throws Exception {
 
 		//This should ne a invalid ID
 		 String validId = "4";

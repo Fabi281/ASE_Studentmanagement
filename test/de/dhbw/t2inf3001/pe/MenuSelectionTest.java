@@ -21,6 +21,18 @@ public class MenuSelectionTest {
 	}
 
 	@Test
+	public void testValidNumber() throws Exception {
+		String validId = "1";
+		Student student = new Student(validId);
+
+		Main.processMenuSelection(2, student);
+		String expected = student.info();
+		System.out.println(expected);
+
+		assertEquals(expected, Main.processMenuSelection(2, student).response);
+	}
+
+	@Test
 	public void testInvalidNumber() throws Exception {
 
 		ByteArrayOutputStream out = new ByteArrayOutputStream();
@@ -34,4 +46,5 @@ public class MenuSelectionTest {
 
 		assertTrue(actual.contains(expected));
 	}
+
 }
