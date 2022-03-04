@@ -41,10 +41,10 @@ public class MenuSelectionTest {
 		Main.processMenuSelection(69420, null);
 
 		
-		String actual = out.toString();
+		String actual = out.toString().replaceAll("\\n|\\r\\n", "");
 		String expected = "Invalid input!";
 
-		assertTrue(actual.contains(expected));
+		assertEquals(expected, actual);
 	}
 
 }
