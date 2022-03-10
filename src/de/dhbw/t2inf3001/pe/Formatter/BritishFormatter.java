@@ -4,7 +4,7 @@ import de.dhbw.t2inf3001.pe.Address;
 import de.dhbw.t2inf3001.pe.PhoneNumber;
 import de.dhbw.t2inf3001.pe.Student;
 
-public class AmericanFormatter implements IFormatter{
+public class BritishFormatter implements IFormatter{
 
     @Override
     public String formatPhoneNumber(PhoneNumber unformattedPhoneNumber) {
