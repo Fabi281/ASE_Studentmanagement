@@ -67,8 +67,9 @@ public class Main {
 				Student newStudent = null;
 				try {
 					newStudent = new Student(String.valueOf(id));
-				} catch (NullPointerException e) {
+				} catch (NullPointerException | IndexOutOfBoundsException e) {
 					result.response = NONEXISTENT_ID;
+					break;
 				}
 				result.newStudent = newStudent;
 				result.response = "Successfully selected " + newStudent.info();

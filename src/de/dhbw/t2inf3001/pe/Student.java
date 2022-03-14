@@ -4,9 +4,9 @@ import java.util.List;
 
 public class Student {
 
-	private String id;
-	private String firstName;
-	private String lastName;
+	public String id;
+	public String firstName;
+	public String lastName;
 	private Address address;
 	private PhoneNumber phone;
 

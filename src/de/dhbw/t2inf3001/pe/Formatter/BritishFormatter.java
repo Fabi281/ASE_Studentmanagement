@@ -8,20 +8,47 @@ public class BritishFormatter implements IFormatter{
 
     @Override
     public String formatPhoneNumber(PhoneNumber unformattedPhoneNumber) {
-        // TODO Auto-generated method stub
-        return null;
+        StringBuilder builder = new StringBuilder();
+        String seperator = " ";
+        /*
+            If we want to add CountryCode (Afterwards the tests need to be changed)
+            builder.append(unformattedPhoneNumber.countrycode);
+            builder.append(seperator);
+        */
+		builder.append(unformattedPhoneNumber.areaCode);
+		builder.append(seperator);
+		builder.append(unformattedPhoneNumber.subscriber);
+		return builder.toString();
     }
 
     @Override
     public String formatAddress(Address unformattedAddress) {
-        // TODO Auto-generated method stub
-        return null;
+        String newline = System.getProperty("line.separator");
+		StringBuilder builder = new StringBuilder();
+        builder.append(unformattedAddress.streetNumber);
+		builder.append(" ");
+        builder.append(unformattedAddress.street);
+		builder.append(newline);
+        builder.append(unformattedAddress.city);
+        builder.append(newline);
+        builder.append(unformattedAddress.zipCode);
+        /*
+            If we want to add Destination (Afterwards the tests need to be changed)
+            builder.append(newline);
+            builder.append(unformattedAddress.country);
+        */
+		return builder.toString();
     }
 
     @Override
     public String formatInfo(Student unformattedInfo) {
-        // TODO Auto-generated method stub
-        return null;
+        StringBuilder builder = new StringBuilder();
+		builder.append(unformattedInfo.id);
+		builder.append(": ");
+		builder.append(unformattedInfo.firstName);
+        builder.append(" ");
+        builder.append(unformattedInfo.lastName);
+        return builder.toString();
     }
     
 }

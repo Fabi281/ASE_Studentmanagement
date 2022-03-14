@@ -9,7 +9,7 @@ public class PhoneNumberTest {
 	@Test
 	public void testFormat() {
 		PhoneNumber phone = new PhoneNumber("01234", "56789", "DE");
-		String expected = "01234-56789";
+		String expected = "01234/56789";
 		assertEquals(expected, phone.format());
 	}
 

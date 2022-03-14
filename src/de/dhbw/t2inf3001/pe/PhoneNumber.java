@@ -2,8 +2,8 @@ package de.dhbw.t2inf3001.pe;
 
 public class PhoneNumber {
 
-	private String areaCode;
-	private String subscriber;
+	public String areaCode;
+	public String subscriber;
 
 
 	public PhoneNumber(String areaCode, String subscriber, String country) {
