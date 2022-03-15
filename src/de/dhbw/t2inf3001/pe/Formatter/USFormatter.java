@@ -4,23 +4,22 @@ import de.dhbw.t2inf3001.pe.Address;
 import de.dhbw.t2inf3001.pe.PhoneNumber;
 import de.dhbw.t2inf3001.pe.Student;
 
-public class BritishFormatter extends GenericFormatter {
+public class USFormatter extends GenericFormatter {
 
+    
     public String formatPhoneNumber(PhoneNumber unformattedPhoneNumber) {
-        if(!unformattedPhoneNumber.country.equals("GB")) {
-            return unformattedPhoneNumber.formatInternational();
-        }
+		if(!unformattedPhoneNumber.country.equals("US"))
+			return unformattedPhoneNumber.formatInternational();
 
         StringBuilder builder = new StringBuilder();
-        String seperator = " ";
-        /*
-            If we want to add CountryCode (Afterwards the tests need to be changed)
-            builder.append(unformattedPhoneNumber.countrycode);
-            builder.append(seperator);
-        */
+        String seperator = "-";
+		builder.append("(");
 		builder.append(unformattedPhoneNumber.areaCode);
+		builder.append(") ");
 		builder.append(seperator);
-		builder.append(unformattedPhoneNumber.subscriber);
+		builder.append(unformattedPhoneNumber.subscriber.substring(0, 3));
+		builder.append(seperator);
+		builder.append(unformattedPhoneNumber.subscriber.substring(3));
 		return builder.toString();
     }
 
@@ -32,6 +31,7 @@ public class BritishFormatter extends GenericFormatter {
         builder.append(unformattedAddress.street);
 		builder.append(newline);
         builder.append(unformattedAddress.city);
+        builder.append(", ");
         builder.append(newline);
         builder.append(unformattedAddress.zipCode);
         /*
