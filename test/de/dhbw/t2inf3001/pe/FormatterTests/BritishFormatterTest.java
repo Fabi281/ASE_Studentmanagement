@@ -12,9 +12,9 @@ public class BritishFormatterTest {
 
 	@Test
 	public void testPhoneNumberFormat() {
-		PhoneNumber phone = new PhoneNumber("01234", "56789", "DE");
+		PhoneNumber phone = new PhoneNumber("01234", "567890", "GB");
 		BritishFormatter bf = new BritishFormatter();
-		String expected = "01234 56789";
+		String expected = "01234 567 890";
 		assertEquals(expected, bf.formatPhoneNumber(phone));
 	}
 

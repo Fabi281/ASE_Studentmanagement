@@ -18,9 +18,53 @@ public class BritishFormatter extends GenericFormatter {
             builder.append(unformattedPhoneNumber.countrycode);
             builder.append(seperator);
         */
-		builder.append(unformattedPhoneNumber.areaCode);
+
+        //areaCode.length() always needs to be the actual length +1 because the leading 0 is incorporated
+        //in the areacode in the database
+        if(unformattedPhoneNumber.areaCode.length() == 6){
+            builder.append(unformattedPhoneNumber.areaCode.substring(0,4));
+            builder.append(seperator);
+            builder.append(unformattedPhoneNumber.areaCode.substring(4));
+        }else{
+            builder.append(unformattedPhoneNumber.areaCode);
+        }
+		
 		builder.append(seperator);
-		builder.append(unformattedPhoneNumber.subscriber);
+
+
+        //Source for these formats: https://en.wikipedia.org/wiki/Telephone_numbers_in_the_United_Kingdom
+        switch(unformattedPhoneNumber.areaCode.length()){
+            case 5:
+                if(unformattedPhoneNumber.subscriber.length() == 6){
+                    builder.append(unformattedPhoneNumber.subscriber.substring(0,3));
+                    builder.append(seperator);
+                    builder.append(unformattedPhoneNumber.subscriber.substring(3));
+                }else{
+                    builder.append(unformattedPhoneNumber.subscriber.substring(0,2));
+                    builder.append(seperator);
+                    builder.append(unformattedPhoneNumber.subscriber.substring(2));
+                }
+                break;
+            case 4:
+                builder.append(unformattedPhoneNumber.subscriber.substring(0,3));
+                builder.append(seperator);
+                builder.append(unformattedPhoneNumber.subscriber.substring(3));
+                break;
+            case 3:
+                builder.append(unformattedPhoneNumber.subscriber.substring(0,4));
+                builder.append(seperator);
+                builder.append(unformattedPhoneNumber.subscriber.substring(4));
+                break;
+            case 6:
+                if(unformattedPhoneNumber.subscriber.length() == 5){
+                    builder.append(unformattedPhoneNumber.subscriber.substring(0,2));
+                    builder.append(seperator);
+                    builder.append(unformattedPhoneNumber.subscriber.substring(2));
+                }else{
+                    builder.append(unformattedPhoneNumber.subscriber);
+                }
+                break;
+        }
 		return builder.toString();
     }
 
