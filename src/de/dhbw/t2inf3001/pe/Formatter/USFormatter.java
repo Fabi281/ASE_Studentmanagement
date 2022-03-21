@@ -8,17 +8,12 @@ public class USFormatter extends GenericFormatter {
 
     
     public String formatPhoneNumber(PhoneNumber unformattedPhoneNumber) {
-		if(!unformattedPhoneNumber.country.equals("US"))
-			return unformattedPhoneNumber.formatInternational();
-
         StringBuilder builder = new StringBuilder();
-        String seperator = "-";
 		builder.append("(");
 		builder.append(unformattedPhoneNumber.areaCode);
 		builder.append(") ");
-		builder.append(seperator);
 		builder.append(unformattedPhoneNumber.subscriber.substring(0, 3));
-		builder.append(seperator);
+		builder.append("-");
 		builder.append(unformattedPhoneNumber.subscriber.substring(3));
 		return builder.toString();
     }
@@ -32,13 +27,7 @@ public class USFormatter extends GenericFormatter {
 		builder.append(newline);
         builder.append(unformattedAddress.city);
         builder.append(", ");
-        builder.append(newline);
         builder.append(unformattedAddress.zipCode);
-        /*
-            If we want to add Destination (Afterwards the tests need to be changed)
-            builder.append(newline);
-            builder.append(unformattedAddress.country);
-        */
 		return builder.toString();
     }
 
