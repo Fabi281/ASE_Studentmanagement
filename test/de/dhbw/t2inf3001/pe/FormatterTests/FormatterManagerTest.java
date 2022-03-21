@@ -2,12 +2,7 @@ package de.dhbw.t2inf3001.pe.FormatterTests;
 
 import static org.junit.Assert.*;
 
-import org.hamcrest.core.IsInstanceOf;
 import org.junit.Test;
-import de.dhbw.t2inf3001.pe.PhoneNumber;
-import de.dhbw.t2inf3001.pe.Address;
-import de.dhbw.t2inf3001.pe.Student;
-import de.dhbw.t2inf3001.pe.Formatter.BritishFormatter;
 import de.dhbw.t2inf3001.pe.Formatter.FormatterManager;
 import de.dhbw.t2inf3001.pe.Formatter.GenericFormatter;
 import de.dhbw.t2inf3001.pe.Formatter.GermanFormatter;
