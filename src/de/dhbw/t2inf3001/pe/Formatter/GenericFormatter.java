@@ -12,11 +12,32 @@ public abstract class GenericFormatter {
 
     public abstract String formatInfo(Student unformattedInfo);
 
-    public String formatInternational(PhoneNumber unformattedPhoneNumber) {
+    public String formatPhoneNumberInternational(PhoneNumber unformattedPhoneNumber) {
         StringBuilder builder = new StringBuilder();
         builder.append("+");
-        builder.append(unformattedPhoneNumber.country);
-        builder.append(unformattedPhoneNumber.areaCode);
+        switch (unformattedPhoneNumber.country) {
+            case "DE":
+                builder.append("49");
+                builder.append(unformattedPhoneNumber.areaCode.substring(1));
+                break;
+            case "GB":
+                builder.append("44");
+                builder.append(unformattedPhoneNumber.areaCode.substring(1));
+                break;
+            case "US":
+                builder.append("1");
+                builder.append(unformattedPhoneNumber.areaCode);
+                break;
+            case "FR":
+                builder.append("33");
+                builder.append(unformattedPhoneNumber.areaCode.substring(1));
+                break;
+            default:
+                builder.append(unformattedPhoneNumber.country);
+                builder.append(unformattedPhoneNumber.areaCode);
+                break;
+        }
+        builder.append(unformattedPhoneNumber.subscriber);
         return builder.toString();
     }
 }
