@@ -21,6 +21,15 @@ public class MenuSelectionTest {
 	}
 
 	@Test
+	public void testValidInput() throws Exception {
+
+		String test = "2";
+		BufferedReader br = new BufferedReader(new InputStreamReader(new ByteArrayInputStream(test.getBytes())));
+
+		assertEquals(2,Main.readIntInput(br));
+	}
+
+	@Test
 	public void testInvalidNumber() throws Exception {
 
 		String expected = "Invalid input!";
