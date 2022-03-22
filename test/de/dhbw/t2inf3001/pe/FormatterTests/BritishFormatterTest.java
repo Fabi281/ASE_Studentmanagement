@@ -11,7 +11,7 @@ import de.dhbw.t2inf3001.pe.Formatter.BritishFormatter;
 public class BritishFormatterTest {
 
 	@Test
-	public void testPhoneNumberFormat4Digit6() {
+	public void testPhoneNumberFormat4Digit6Subscriber() {
 		PhoneNumber phone = new PhoneNumber("01234", "567890", "GB");
 		BritishFormatter bf = new BritishFormatter();
 		String expected = "01234 567 890";
@@ -19,7 +19,7 @@ public class BritishFormatterTest {
 	}
 
 	@Test
-	public void testPhoneNumberFormat4Digit5() {
+	public void testPhoneNumberFormat4Digit5Subscriber() {
 		PhoneNumber phone = new PhoneNumber("01234", "56789", "GB");
 		BritishFormatter bf = new BritishFormatter();
 		String expected = "01234 56 789";
@@ -27,7 +27,7 @@ public class BritishFormatterTest {
 	}
 
 	@Test
-	public void testPhoneNumberFormat3Digit7() {
+	public void testPhoneNumberFormat3Digit7Subscriber() {
 		PhoneNumber phone = new PhoneNumber("0123", "5678901", "GB");
 		BritishFormatter bf = new BritishFormatter();
 		String expected = "0123 567 8901";
@@ -35,7 +35,7 @@ public class BritishFormatterTest {
 	}
 
 	@Test
-	public void testPhoneNumberFormat2Digit8() {
+	public void testPhoneNumberFormat2Digit8Subscriber() {
 		PhoneNumber phone = new PhoneNumber("012", "56789012", "GB");
 		BritishFormatter bf = new BritishFormatter();
 		String expected = "012 5678 9012";
@@ -43,7 +43,7 @@ public class BritishFormatterTest {
 	}
 
 	@Test
-	public void testPhoneNumberFormat5Digit5() {
+	public void testPhoneNumberFormat5Digit5Subscriber() {
 		PhoneNumber phone = new PhoneNumber("012345", "67890", "GB");
 		BritishFormatter bf = new BritishFormatter();
 		String expected = "0123 45 67 890";
@@ -51,7 +51,7 @@ public class BritishFormatterTest {
 	}
 
 	@Test
-	public void testPhoneNumberFormat5Digit4() {
+	public void testPhoneNumberFormat5Digit4Subscriber() {
 		PhoneNumber phone = new PhoneNumber("012345", "6789", "GB");
 		BritishFormatter bf = new BritishFormatter();
 		String expected = "0123 45 6789";

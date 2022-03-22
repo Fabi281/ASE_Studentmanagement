@@ -7,10 +7,6 @@ import de.dhbw.t2inf3001.pe.Student;
 public class GermanFormatter extends GenericFormatter {
 
     public String formatPhoneNumber (PhoneNumber unformattedPhoneNumber){
-        if(!unformattedPhoneNumber.country.equals("DE")){
-            return unformattedPhoneNumber.formatInternational();
-        }
-
         StringBuilder builder = new StringBuilder();
         String seperator = " ";
         String firstNumberHalf;

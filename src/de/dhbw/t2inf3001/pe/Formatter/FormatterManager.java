@@ -2,7 +2,7 @@ package de.dhbw.t2inf3001.pe.Formatter;
 
 public class FormatterManager {
   
-  public static GenericFormatter getFormatter() {
+  public static GenericFormatter getFormatter(){
     String language = System.getProperty("ASE_studentmanagement_lang");
     if (language == null) {
       throw new NoLanguageSpecifiedException();

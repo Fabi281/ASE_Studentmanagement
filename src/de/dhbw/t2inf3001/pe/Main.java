@@ -3,7 +3,12 @@ package de.dhbw.t2inf3001.pe;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.PrintStream;
 
+import de.dhbw.t2inf3001.pe.Formatter.FormatterManager;
+import de.dhbw.t2inf3001.pe.Formatter.GenericFormatter;
+import de.dhbw.t2inf3001.pe.Formatter.FormatterManager.NoLanguageSpecifiedException;
+import de.dhbw.t2inf3001.pe.Formatter.FormatterManager.UnknownLanguageException;
 public class Main {
 
 	private static final String INVALID_INPUT = "Invalid input!";
@@ -16,10 +21,20 @@ public class Main {
 	}
 
 	private static BufferedReader cin = new BufferedReader(new InputStreamReader(System.in));
+
+	public static GenericFormatter formatter;
 	
 	public static void main(String[] args) throws Exception {
 		System.out.println("Welcome to the DHBW Student Management System!");
 
+		setCountry();
+
+		while(formatter == null){
+			System.out.println("Invalid Input!");
+			setCountry();
+		}
+		
+		
 		Student student = null;
 		int action;
 		MenuResult result;
@@ -27,12 +42,12 @@ public class Main {
 
 			printMenu();
 			try{
-				action = readIntInput();
+				action = readIntInput(cin);
 			} catch (IOException | NumberFormatException e) {
 				System.out.println(INVALID_INPUT);
 				continue;
 			}
-			result = processMenuSelection(action, student);
+			result = processMenuSelection(action, student, cin, System.out);
 			if (result.response != null)
 				System.out.println(result.response);
 			if (result.finished)
@@ -47,19 +62,28 @@ public class Main {
 		cin.close();
 	}
 
-	static int readIntInput() throws IOException, NumberFormatException{
-		String input = cin.readLine();
+	static private void setCountry() throws IOException{
+		try{
+			formatter = FormatterManager.getFormatter();
+		}catch(UnknownLanguageException | NoLanguageSpecifiedException e ){
+			System.out.println("Please choose the Country you are from (en_US, de_DE, fr_FR, en_GB): ");
+			String selectedCountry = cin.readLine();
+			FormatterManager.setCountry(selectedCountry);
+		}
+	}
+	static int readIntInput(BufferedReader br) throws IOException, NumberFormatException{
+		String input = br.readLine();
 		return Integer.parseInt(input);
 	}
 
-	static MenuResult processMenuSelection(int action, Student selectedStudent) {
+	static MenuResult processMenuSelection(int action, Student selectedStudent, BufferedReader br, PrintStream ps) {
 		MenuResult result = new MenuResult();
 		switch (action) {
 			case 1:
-				System.out.println("Enter id: ");
+				ps.println("Enter id: ");
 				int id;
 				try {
-					id = readIntInput();
+					id = readIntInput(br);
 				} catch (NumberFormatException | IOException e) {
 					result.response = INVALID_INPUT;
 					break;
@@ -72,25 +96,25 @@ public class Main {
 					break;
 				}
 				result.newStudent = newStudent;
-				result.response = "Successfully selected " + newStudent.info();
+				result.response = "Successfully selected " + formatter.formatInfo(newStudent);
 				break;
 			case 2:
-				result.response = selectedStudent.info();
+				result.response = formatter.formatInfo(selectedStudent);
 				break;
 			case 3:
-				result.response = selectedStudent.address();
+				result.response = formatter.formatAddress(selectedStudent.address());
 				break;
 			case 4:
-				result.response = selectedStudent.phone();
+				result.response = formatter.formatPhoneNumber(selectedStudent.phone());
 				break;
 			case 5:
-				result.response = selectedStudent.intlPhone();
+				result.response = formatter.formatPhoneNumberInternational(selectedStudent.phone());
 				break;
 			case 8:
 				System.exit(0);
 				break;
 			default:
-				System.out.println(INVALID_INPUT);
+				result.response= INVALID_INPUT;
 				break;
 		}
 

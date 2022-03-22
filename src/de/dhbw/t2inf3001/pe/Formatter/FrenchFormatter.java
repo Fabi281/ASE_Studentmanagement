@@ -7,10 +7,6 @@ import de.dhbw.t2inf3001.pe.Student;
 public class FrenchFormatter extends GenericFormatter {
 
     public String formatPhoneNumber (PhoneNumber unformattedPhoneNumber){
-        if(!unformattedPhoneNumber.country.equals("FR")){
-            return unformattedPhoneNumber.formatInternational();
-        }
-
         StringBuilder builder = new StringBuilder();
         String seperator = " ";
         String FullNumber = unformattedPhoneNumber.areaCode + unformattedPhoneNumber.subscriber;

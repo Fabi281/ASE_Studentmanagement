@@ -14,16 +14,12 @@ public class Student {
 		readDataFromStore(id);
 	}
 
-	public String address() {
-		return address.format();
+	public Address address() {
+		return address;
 	}
 
-	public String phone() {
-		return phone.format();
-	}
-	
-	public String intlPhone() {
-		return phone.formatInternational();
+	public PhoneNumber phone() {
+		return phone;
 	}
 
 	public String getFirstName() {
@@ -32,10 +28,6 @@ public class Student {
 
 	public String getLastName() {
 		return lastName;
-	}
-
-	public String info() {
-		return id + ": " + firstName + " " + lastName;
 	}
 
 	private void readDataFromStore(String id) {

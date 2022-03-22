@@ -13,18 +13,4 @@ public class Address {
 		this.city = city;
 		this.zipCode = zipCode;
 	}
-	
-	public String format() {
-		String newline = System.getProperty("line.separator");
-		StringBuilder builder = new StringBuilder();
-		builder.append(street);
-		builder.append(" ");
-		builder.append(streetNumber);
-		builder.append(newline);
-		builder.append(zipCode);
-		builder.append(" ");
-		builder.append(city);
-		return builder.toString();
-	}
-
 }
