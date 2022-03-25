@@ -21,6 +21,7 @@ public class GermanFormatter extends GenericFormatter {
                 builder.append(firstNumberHalf);
                 builder.append("-");
                 builder.append(secondNumberHalf);
+                break;
             
             case 4:
                 firstNumberHalf = unformattedPhoneNumber.subscriber.substring(0, 4);
@@ -30,6 +31,7 @@ public class GermanFormatter extends GenericFormatter {
                 builder.append(firstNumberHalf);
                 builder.append("-");
                 builder.append(secondNumberHalf);
+                break;
             
             case 5:
                 firstNumberHalf = unformattedPhoneNumber.subscriber.substring(0, 3);
@@ -39,6 +41,7 @@ public class GermanFormatter extends GenericFormatter {
                 builder.append(firstNumberHalf);
                 builder.append("-");
                 builder.append(secondNumberHalf);
+                break;
             
             case 6:
                 firstNumberHalf = unformattedPhoneNumber.subscriber.substring(0, 2);
@@ -48,6 +51,7 @@ public class GermanFormatter extends GenericFormatter {
                 builder.append(firstNumberHalf);
                 builder.append("-");
                 builder.append(secondNumberHalf);
+                break;
 
             default:
                 firstNumberHalf = unformattedPhoneNumber.subscriber.substring(0, 4);
@@ -57,6 +61,7 @@ public class GermanFormatter extends GenericFormatter {
                 builder.append(firstNumberHalf);
                 builder.append("-");
                 builder.append(secondNumberHalf);
+                break;
 
         }
 		
