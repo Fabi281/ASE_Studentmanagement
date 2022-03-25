@@ -2,6 +2,8 @@ package de.dhbw.t2inf3001.pe.FormatterTests;
 
 import static org.junit.Assert.*;
 
+import java.util.prefs.Preferences;
+
 import org.junit.Test;
 import de.dhbw.t2inf3001.pe.Formatter.FormatterManager;
 import de.dhbw.t2inf3001.pe.Formatter.GenericFormatter;
@@ -38,7 +40,7 @@ public class FormatterManagerTest {
 
   private synchronized void runInSandbox(Runnable r, String lang) {
     String key = "ASE_studentmanagement_lang";
-    String old = System.getProperty(key);
+    String old = Preferences.userNodeForPackage(FormatterManager.class).get(key, null);
     try{
       setOrClearProperty(key, lang);
       r.run();
@@ -49,9 +51,9 @@ public class FormatterManagerTest {
 
   private void setOrClearProperty(String key, String value){
     if (value == null) {
-      System.clearProperty(key);
+      Preferences.userNodeForPackage(FormatterManager.class).remove(key);
     } else {
-      System.setProperty(key, value);
+      Preferences.userNodeForPackage(FormatterManager.class).put(key, value);
     }
   }
 
