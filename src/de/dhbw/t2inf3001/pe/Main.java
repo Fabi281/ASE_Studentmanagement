@@ -29,13 +29,7 @@ public class Main {
 	public static void main(String[] args) throws Exception {
 		System.out.println("Welcome to the DHBW Student Management System!");
 
-		setCountry();
-
-		while(formatter == null){
-			System.out.println("Invalid Input!");
-			setCountry();
-		}
-		
+		setCountry(true);		
 		
 		Student student = null;
 		int action;
@@ -65,15 +59,20 @@ public class Main {
 		cin.close();
 	}
 
-	static private void setCountry() throws IOException{
+	static private void setCountry(boolean firstRender) throws IOException{
 		try{
 			formatter = FormatterManager.getFormatter();
 		}catch(UnknownLanguageException | NoLanguageSpecifiedException e ){
+			if(!firstRender){
+				System.out.println(INVALID_INPUT);
+			}
 			System.out.println("Please choose the Country you are from (en_US, de_DE, fr_FR, en_GB): ");
 			String selectedCountry = cin.readLine();
 			FormatterManager.setCountry(selectedCountry);
+			setCountry(false);
 		}
 	}
+
 	static int readIntInput(BufferedReader br) throws IOException, NumberFormatException{
 		String input = br.readLine();
 		return Integer.parseInt(input);
