@@ -1,9 +1,14 @@
 package de.dhbw.t2inf3001.pe.Formatter;
 
+import java.util.prefs.Preferences;
+
 public class FormatterManager {
+
+  private static Preferences prefs = Preferences.userNodeForPackage(FormatterManager.class);
+  private static final String LANGUAGE_KEY = "ASE_studentmanagement_lang";
   
   public static GenericFormatter getFormatter(){
-    String language = System.getProperty("ASE_studentmanagement_lang");
+    String language = prefs.get(LANGUAGE_KEY, null);
     if (language == null) {
       throw new NoLanguageSpecifiedException();
     }
@@ -23,7 +28,7 @@ public class FormatterManager {
   }
 
   public static void setCountry(String country) {
-    System.setProperty("ASE_studentmanagement_lang", country);
+    prefs.put(LANGUAGE_KEY, country);
   }
 
   public static class NoLanguageSpecifiedException extends RuntimeException {
