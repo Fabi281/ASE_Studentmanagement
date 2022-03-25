@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.io.InputStreamReader;
 
 import org.junit.Test;
@@ -13,7 +14,7 @@ import de.dhbw.t2inf3001.pe.Formatter.TestFormatter;
 public class IDTest {
 
 	@Test
-	public void testWordInput() {
+	public void testWordInput() throws IOException {
 
 			//This should be a number not a word
 			String test = "IShouldBeANumber\n";
@@ -28,7 +29,7 @@ public class IDTest {
 	public void testInvalidInput() throws Exception {
 
 			//This should ne a invalid ID
-			String validId = "4\n";
+			String validId = "69420\n";
 			BufferedReader br = new BufferedReader(new InputStreamReader(new ByteArrayInputStream(validId.getBytes())));
 
 			String expected = "This ID doesn't exist!";

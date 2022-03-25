@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
+import java.util.Arrays;
 
 import de.dhbw.t2inf3001.pe.Formatter.FormatterManager;
 import de.dhbw.t2inf3001.pe.Formatter.GenericFormatter;
@@ -12,6 +13,7 @@ import de.dhbw.t2inf3001.pe.Formatter.FormatterManager.UnknownLanguageException;
 public class Main {
 
 	private static final String INVALID_INPUT = "Invalid input!";
+	private static final String NO_STUDENT_SELECTED = "No Student has been selected!";
 	private static final String NONEXISTENT_ID = "This ID doesn't exist!";
 
 	static class MenuResult {
@@ -27,19 +29,13 @@ public class Main {
 	public static void main(String[] args) throws Exception {
 		System.out.println("Welcome to the DHBW Student Management System!");
 
-		setCountry();
-
-		while(formatter == null){
-			System.out.println("Invalid Input!");
-			setCountry();
-		}
-		
+		setCountry(true);		
 		
 		Student student = null;
 		int action;
 		MenuResult result;
 		while (true) {
-
+			
 			printMenu();
 			try{
 				action = readIntInput(cin);
@@ -47,6 +43,7 @@ public class Main {
 				System.out.println(INVALID_INPUT);
 				continue;
 			}
+
 			result = processMenuSelection(action, student, cin, System.out);
 			if (result.response != null)
 				System.out.println(result.response);
@@ -62,22 +59,31 @@ public class Main {
 		cin.close();
 	}
 
-	static private void setCountry() throws IOException{
+	static private void setCountry(boolean firstRender) throws IOException{
 		try{
 			formatter = FormatterManager.getFormatter();
 		}catch(UnknownLanguageException | NoLanguageSpecifiedException e ){
+			if(!firstRender){
+				System.out.println(INVALID_INPUT);
+			}
 			System.out.println("Please choose the Country you are from (en_US, de_DE, fr_FR, en_GB): ");
 			String selectedCountry = cin.readLine();
 			FormatterManager.setCountry(selectedCountry);
+			setCountry(false);
 		}
 	}
+
 	static int readIntInput(BufferedReader br) throws IOException, NumberFormatException{
 		String input = br.readLine();
 		return Integer.parseInt(input);
 	}
 
-	static MenuResult processMenuSelection(int action, Student selectedStudent, BufferedReader br, PrintStream ps) {
+	static MenuResult processMenuSelection(int action, Student selectedStudent, BufferedReader br, PrintStream ps) throws IOException {
 		MenuResult result = new MenuResult();
+		if(selectedStudent == null && Arrays.asList(2,3,4,5).contains(action)){
+			result.response = NO_STUDENT_SELECTED;
+			return result;
+		}
 		switch (action) {
 			case 1:
 				ps.println("Enter id: ");
@@ -110,6 +116,10 @@ public class Main {
 			case 5:
 				result.response = formatter.formatPhoneNumberInternational(selectedStudent.phone());
 				break;
+			case 7:
+				FormatterManager.deleteCountry();
+				setCountry(true);
+				break;
 			case 8:
 				System.exit(0);
 				break;
@@ -128,6 +138,7 @@ public class Main {
 		System.out.println("[3] - Display address");
 		System.out.println("[4] - Display phone number");
 		System.out.println("[5] - Display int'l phone number");
+		System.out.println("[7] - Change Language");
 		System.out.println("[8] - Exit program");
 
 	}

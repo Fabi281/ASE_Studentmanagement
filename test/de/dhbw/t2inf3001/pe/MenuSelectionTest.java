@@ -37,4 +37,12 @@ public class MenuSelectionTest {
 		assertEquals(expected, Main.processMenuSelection(69420, null, null, null).response);
 	}
 
+	@Test
+	public void testNoSelectedStudent() throws Exception {
+
+		String expected = "No Student has been selected!";
+
+		assertEquals(expected, Main.processMenuSelection(2, null, null, null).response);
+	}
+
 }
