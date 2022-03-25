@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
+import java.util.Arrays;
 
 import de.dhbw.t2inf3001.pe.Formatter.FormatterManager;
 import de.dhbw.t2inf3001.pe.Formatter.GenericFormatter;
@@ -12,6 +13,7 @@ import de.dhbw.t2inf3001.pe.Formatter.FormatterManager.UnknownLanguageException;
 public class Main {
 
 	private static final String INVALID_INPUT = "Invalid input!";
+	private static final String NO_STUDENT_SELECTED = "No Student has been selected!";
 	private static final String NONEXISTENT_ID = "This ID doesn't exist!";
 
 	static class MenuResult {
@@ -39,7 +41,7 @@ public class Main {
 		int action;
 		MenuResult result;
 		while (true) {
-
+			
 			printMenu();
 			try{
 				action = readIntInput(cin);
@@ -47,6 +49,7 @@ public class Main {
 				System.out.println(INVALID_INPUT);
 				continue;
 			}
+
 			result = processMenuSelection(action, student, cin, System.out);
 			if (result.response != null)
 				System.out.println(result.response);
@@ -78,6 +81,10 @@ public class Main {
 
 	static MenuResult processMenuSelection(int action, Student selectedStudent, BufferedReader br, PrintStream ps) {
 		MenuResult result = new MenuResult();
+		if(selectedStudent == null && Arrays.asList(2,3,4,5).contains(action)){
+			result.response = NO_STUDENT_SELECTED;
+			return result;
+		}
 		switch (action) {
 			case 1:
 				ps.println("Enter id: ");
