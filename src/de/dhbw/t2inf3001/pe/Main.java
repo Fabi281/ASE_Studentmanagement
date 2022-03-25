@@ -78,7 +78,7 @@ public class Main {
 		return Integer.parseInt(input);
 	}
 
-	static MenuResult processMenuSelection(int action, Student selectedStudent, BufferedReader br, PrintStream ps) {
+	static MenuResult processMenuSelection(int action, Student selectedStudent, BufferedReader br, PrintStream ps) throws IOException {
 		MenuResult result = new MenuResult();
 		if(selectedStudent == null && Arrays.asList(2,3,4,5).contains(action)){
 			result.response = NO_STUDENT_SELECTED;
@@ -116,6 +116,10 @@ public class Main {
 			case 5:
 				result.response = formatter.formatPhoneNumberInternational(selectedStudent.phone());
 				break;
+			case 7:
+				FormatterManager.deleteCountry();
+				setCountry(true);
+				break;
 			case 8:
 				System.exit(0);
 				break;
@@ -134,6 +138,7 @@ public class Main {
 		System.out.println("[3] - Display address");
 		System.out.println("[4] - Display phone number");
 		System.out.println("[5] - Display int'l phone number");
+		System.out.println("[7] - Change Language");
 		System.out.println("[8] - Exit program");
 
 	}

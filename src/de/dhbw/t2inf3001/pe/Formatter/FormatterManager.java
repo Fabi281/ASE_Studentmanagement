@@ -26,6 +26,10 @@ public class FormatterManager {
     System.setProperty("ASE_studentmanagement_lang", country);
   }
 
+  public static void deleteCountry(){
+    System.clearProperty("ASE_studentmanagement_lang");
+  }
+
   public static class NoLanguageSpecifiedException extends RuntimeException {
     public NoLanguageSpecifiedException() {
       super("No language specified");
