@@ -32,7 +32,7 @@ public class FormatterManager {
   }
 
   public static void deleteCountry(){
-    System.clearProperty("ASE_studentmanagement_lang");
+    prefs.remove(LANGUAGE_KEY);
   }
 
   public static class NoLanguageSpecifiedException extends RuntimeException {
