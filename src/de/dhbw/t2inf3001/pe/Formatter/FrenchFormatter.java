@@ -19,7 +19,10 @@ public class FrenchFormatter extends GenericFormatter {
             remainingNumber = remainingNumber.substring(2);
             builder.append(seperator);
             builder.append(splitNumber);
-
+        }
+        if(remainingNumber.length() > 0) {
+            builder.append(seperator);
+            builder.append(remainingNumber);
         }
 		
 		return builder.toString();
@@ -30,13 +33,14 @@ public class FrenchFormatter extends GenericFormatter {
         String newline = System.getProperty("line.separator");
 		StringBuilder builder = new StringBuilder();
     
-        builder.append(unformattedAddress.street);
-        builder.append(" ");
         builder.append(unformattedAddress.streetNumber);
+        builder.append(" ");
+        builder.append(unformattedAddress.street);
 		builder.append(newline);
-        builder.append(unformattedAddress.city);
-        builder.append(newline);
         builder.append(unformattedAddress.zipCode);
+        builder.append(" ");
+        builder.append(unformattedAddress.city);
+        
 
 		return builder.toString();
     }

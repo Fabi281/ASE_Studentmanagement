@@ -12,11 +12,12 @@ public class GermanFormatter extends GenericFormatter {
         String firstNumberHalf;
         String secondNumberHalf;
 
+        builder.append("(" + unformattedPhoneNumber.areaCode + ")");
+
         switch(unformattedPhoneNumber.areaCode.length()){
             case 3:
                 firstNumberHalf = unformattedPhoneNumber.subscriber.substring(0, 4);
                 secondNumberHalf = unformattedPhoneNumber.subscriber.substring(4);
-                builder.append("(" + unformattedPhoneNumber.areaCode + ")");
 		        builder.append(seperator);
                 builder.append(firstNumberHalf);
                 builder.append("-");
@@ -26,7 +27,6 @@ public class GermanFormatter extends GenericFormatter {
             case 4:
                 firstNumberHalf = unformattedPhoneNumber.subscriber.substring(0, 4);
                 secondNumberHalf = unformattedPhoneNumber.subscriber.substring(4);
-                builder.append("(" + unformattedPhoneNumber.areaCode + ")");
 		        builder.append(seperator);
                 builder.append(firstNumberHalf);
                 builder.append("-");
@@ -36,7 +36,6 @@ public class GermanFormatter extends GenericFormatter {
             case 5:
                 firstNumberHalf = unformattedPhoneNumber.subscriber.substring(0, 3);
                 secondNumberHalf = unformattedPhoneNumber.subscriber.substring(3);
-                builder.append("(" + unformattedPhoneNumber.areaCode + ")");
 		        builder.append(seperator);
                 builder.append(firstNumberHalf);
                 builder.append("-");
@@ -46,7 +45,6 @@ public class GermanFormatter extends GenericFormatter {
             case 6:
                 firstNumberHalf = unformattedPhoneNumber.subscriber.substring(0, 2);
                 secondNumberHalf = unformattedPhoneNumber.subscriber.substring(2);
-                builder.append("(" + unformattedPhoneNumber.areaCode + ")");
 		        builder.append(seperator);
                 builder.append(firstNumberHalf);
                 builder.append("-");
@@ -56,7 +54,6 @@ public class GermanFormatter extends GenericFormatter {
             default:
                 firstNumberHalf = unformattedPhoneNumber.subscriber.substring(0, 4);
                 secondNumberHalf = unformattedPhoneNumber.subscriber.substring(4);
-                builder.append("(" + unformattedPhoneNumber.areaCode + ")");
                 builder.append(seperator);
                 builder.append(firstNumberHalf);
                 builder.append("-");
@@ -77,9 +74,10 @@ public class GermanFormatter extends GenericFormatter {
         builder.append(" ");
         builder.append(unformattedAddress.streetNumber);
 		builder.append(newline);
-        builder.append(unformattedAddress.city);
-        builder.append(newline);
+        
         builder.append(unformattedAddress.zipCode);
+        builder.append(" ");
+        builder.append(unformattedAddress.city);
 
 		return builder.toString();
     }
