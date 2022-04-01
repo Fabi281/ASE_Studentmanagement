@@ -6,9 +6,11 @@ import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.text.Normalizer.Form;
 
 import org.junit.Test;
 
+import de.dhbw.t2inf3001.pe.Formatter.Formatter;
 import de.dhbw.t2inf3001.pe.Formatter.TestFormatter;
 
 public class IDTest {
@@ -44,8 +46,7 @@ public class IDTest {
 				BufferedReader br = new BufferedReader(new InputStreamReader(new ByteArrayInputStream(validId.getBytes())));
 				String expected = "Successfully selected ";
 	
-				Main.formatter = new TestFormatter();
-	
+				Formatter.formatter = new TestFormatter();
 				assertTrue(Main.processMenuSelection(1, null, br, System.out).response.contains(expected));
 
 	}
