@@ -40,7 +40,7 @@ public class StudentSelectedMenu implements IMenu{
     }
     switch (action) {
         case 1:
-            ps.println("Enter id: ");
+            ps.println("Enter ID: ");
             int id;
             try {
                 id = Integer.parseInt(br.readLine());

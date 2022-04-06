@@ -21,7 +21,7 @@ public class NoLanguageSelectedMenu implements IMenu{
 			Formatter.setCountry(br.readLine());
       Menu.setMenu(new NoStudentSelectedMenu());
 		}catch(UnknownLanguageException | NoLanguageSpecifiedException e ){
-			System.out.println(Menu.INVALID_INPUT);
+			ps.println(Menu.INVALID_INPUT);
 		}
   }
   

@@ -5,11 +5,11 @@ import java.io.IOException;
 import java.io.PrintStream;
 
 public class Menu {
-  static final String INVALID_INPUT = "Invalid input!";
+  public static final String INVALID_INPUT = "Invalid input!";
 	static final String NO_STUDENT_SELECTED = "No Student has been selected!";
-	static final String NONEXISTENT_ID = "This ID doesn't exist!";
+	public static final String NONEXISTENT_ID = "This ID doesn't exist!";
 
-  private static IMenu currentMenu;
+  protected static IMenu currentMenu;
 
   public static void setMenu(IMenu menu) {
     currentMenu = menu;
