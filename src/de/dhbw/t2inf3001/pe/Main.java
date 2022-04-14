@@ -4,9 +4,9 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import de.dhbw.t2inf3001.pe.Formatter.Formatter;
-import de.dhbw.t2inf3001.pe.Formatter.Formatter.NoLanguageSpecifiedException;
-import de.dhbw.t2inf3001.pe.Formatter.Formatter.UnknownLanguageException;
+import de.dhbw.t2inf3001.pe.Formatter.FormatterManager;
+import de.dhbw.t2inf3001.pe.Formatter.FormatterManager.NoLanguageSpecifiedException;
+import de.dhbw.t2inf3001.pe.Formatter.FormatterManager.UnknownLanguageException;
 import de.dhbw.t2inf3001.pe.Menu.Menu;
 import de.dhbw.t2inf3001.pe.Menu.NoLanguageSelectedMenu;
 import de.dhbw.t2inf3001.pe.Menu.NoStudentSelectedMenu;
@@ -26,7 +26,7 @@ public class Main {
 		}));
 
 		try {
-			Formatter.loadFormatter();
+			FormatterManager.loadFormatter();
 			Menu.setMenu(new NoStudentSelectedMenu());
 		} catch (UnknownLanguageException | NoLanguageSpecifiedException e) {
 			Menu.setMenu(new NoLanguageSelectedMenu());

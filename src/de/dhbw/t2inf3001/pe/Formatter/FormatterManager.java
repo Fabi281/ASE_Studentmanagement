@@ -6,9 +6,9 @@ import de.dhbw.t2inf3001.pe.Address;
 import de.dhbw.t2inf3001.pe.PhoneNumber;
 import de.dhbw.t2inf3001.pe.Student;
 
-public class Formatter{
+public class FormatterManager{
 
-  private static Preferences prefs = Preferences.userNodeForPackage(Formatter.class);
+  private static Preferences prefs = Preferences.userNodeForPackage(FormatterManager.class);
   private static final String LANGUAGE_KEY = "ASE_studentmanagement_lang";
   public static GenericFormatter formatter;
   
