@@ -6,4 +6,4 @@ Abgabe von:
 - Finn Melzer
 - Marc-Andre Stegerwald
 
-Dokumentation im Word-File
+Dokumentation im Word- und PDF-File
