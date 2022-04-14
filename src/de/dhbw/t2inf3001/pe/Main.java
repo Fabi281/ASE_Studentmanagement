@@ -39,7 +39,6 @@ public class Main {
 				try {
 					Menu.parseInput(cin, System.out);
 				} catch (IOException e) {
-					e.printStackTrace();
 					System.err.println(ERROR_MESSAGE);
 				}
 			}
