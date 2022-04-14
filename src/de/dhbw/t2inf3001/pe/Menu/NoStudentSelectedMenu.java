@@ -56,7 +56,7 @@ public class NoStudentSelectedMenu implements IMenu {
             Menu.setMenu(new NoLanguageSelectedMenu());
             break;
         case 8:
-            System.exit(0);
+            Menu.exit();
             break;
         default:
             ps.println(Menu.INVALID_INPUT);

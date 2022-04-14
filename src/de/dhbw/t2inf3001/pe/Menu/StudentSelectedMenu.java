@@ -83,8 +83,8 @@ public class StudentSelectedMenu implements IMenu{
             Menu.setMenu(new NoLanguageSelectedMenu());
             break;
         case 8:
-            //closes program
-            System.exit(0);
+            //Instructs Menu to exit
+            Menu.exit();
             break;
         default:
             ps.println(Menu.INVALID_INPUT);

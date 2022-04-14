@@ -15,13 +15,18 @@ public class NoLanguageSelectedMenu implements IMenu{
   @Override
   public String getMenuString() {
     //Displays the different languages that can be selected
-    return "Please choose your preferred language (en_US, de_DE, fr_FR, en_GB): ";
+    return "Please choose your preferred language (en_US, de_DE, fr_FR, en_GB) or enter E to exit: ";
   }
 
   @Override
   public void parseInput(BufferedReader br, PrintStream ps) throws IOException {
     try{
-			Formatter.setCountry(br.readLine());
+      String input = br.readLine();
+      if (input.equals("E")){
+        Menu.exit();
+        return;
+      }
+			Formatter.setCountry(input);
       Menu.setMenu(new NoStudentSelectedMenu());
 		}catch(UnknownLanguageException | NoLanguageSpecifiedException e ){
 			ps.println(Menu.INVALID_INPUT);

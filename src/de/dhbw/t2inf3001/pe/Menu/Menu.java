@@ -10,6 +10,7 @@ public class Menu {
 	public static final String NONEXISTENT_ID = "This ID doesn't exist!";
 
   protected static IMenu currentMenu;
+  private static boolean doExit = false;
 
   public static void setMenu(IMenu menu) {
     //Switchting between Menu States
@@ -22,5 +23,13 @@ public class Menu {
 
   public static String getMenuString() {
     return currentMenu.getMenuString();
+  }
+
+  static void exit(){
+    doExit = true;
+  }
+
+  public static boolean shouldExit(){
+    return doExit;
   }
 }
