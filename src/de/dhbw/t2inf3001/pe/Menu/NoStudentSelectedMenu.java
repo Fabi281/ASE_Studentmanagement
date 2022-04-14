@@ -7,13 +7,12 @@ import java.io.PrintStream;
 import de.dhbw.t2inf3001.pe.Student;
 import de.dhbw.t2inf3001.pe.Formatter.Formatter;
 
+/** 
+ * Display Menu if a language has been selected, but no student has been selected
+*/
 public class NoStudentSelectedMenu implements IMenu {
-
-    //Display Menu if a languafe has been selected, but no student has been selected
-
     @Override
     public String getMenuString(){
-        //Displays Menu with following commands
         StringBuilder sb = new StringBuilder();
         sb.append("What will you do?\n");
         sb.append("[1] - Search for student by id\n");
@@ -34,6 +33,7 @@ public class NoStudentSelectedMenu implements IMenu {
 
     switch (action) {
         case 1:
+            //Select a student
             ps.println("Enter ID: ");
             int id;
             try {
@@ -53,9 +53,11 @@ public class NoStudentSelectedMenu implements IMenu {
             Menu.setMenu(new StudentSelectedMenu(newStudent));
             break;
         case 7:
+            //Switching Menu State to language Selection
             Menu.setMenu(new NoLanguageSelectedMenu());
             break;
         case 8:
+            //Ends Programm
             Menu.exit();
             break;
         default:

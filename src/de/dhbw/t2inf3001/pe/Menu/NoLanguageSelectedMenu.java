@@ -8,13 +8,12 @@ import de.dhbw.t2inf3001.pe.Formatter.Formatter;
 import de.dhbw.t2inf3001.pe.Formatter.Formatter.NoLanguageSpecifiedException;
 import de.dhbw.t2inf3001.pe.Formatter.Formatter.UnknownLanguageException;
 
+/** 
+ * Menu if no language has been selected
+*/
 public class NoLanguageSelectedMenu implements IMenu{
-
-  //Menu if no language has been selected
-
   @Override
   public String getMenuString() {
-    //Displays the different languages that can be selected
     return "Please choose your preferred language (en_US, de_DE, fr_FR, en_GB) or enter E to exit: ";
   }
 

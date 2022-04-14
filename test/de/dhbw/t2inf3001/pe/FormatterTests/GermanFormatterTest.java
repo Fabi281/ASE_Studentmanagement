@@ -110,7 +110,7 @@ public class GermanFormatterTest {
 	public void testAddressFormat() {
 		Address address = new Address("Finkenweg", "1", "Berlin", "12345", "DE");
 		GermanFormatter bf = new GermanFormatter();
-		String expected = "Finkenweg 1\n12345 Berlin".replaceAll("\\n|\\r\\n", System.getProperty("line.separator")); // To make test platform-independent
+		String expected = "Finkenweg 1\n12345 Berlin".replaceAll("\\n|\\r\\n", System.lineSeparator()); // To make test platform-independent
 		assertEquals(expected, bf.formatAddress(address));
 	}
 

@@ -8,6 +8,8 @@ public class USFormatter extends GenericFormatter {
 
     //Source for Format: https://support.twilio.com/hc/en-us/articles/223183008-Formatting-International-Phone-Numbers
     public String formatPhoneNumber(PhoneNumber unformattedPhoneNumber) {
+        //For Area Code: (xxx) 
+        //Use: xxx-xxxx
         StringBuilder builder = new StringBuilder();
 		builder.append("(");
 		builder.append(unformattedPhoneNumber.areaCode);

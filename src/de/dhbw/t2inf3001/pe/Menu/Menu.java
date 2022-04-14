@@ -13,7 +13,6 @@ public class Menu {
   private static boolean doExit = false;
 
   public static void setMenu(IMenu menu) {
-    //Switchting between Menu States
     currentMenu = menu;
   }
 

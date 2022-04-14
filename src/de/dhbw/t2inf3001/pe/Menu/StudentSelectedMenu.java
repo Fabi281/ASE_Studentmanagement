@@ -7,10 +7,10 @@ import java.io.PrintStream;
 import de.dhbw.t2inf3001.pe.Student;
 import de.dhbw.t2inf3001.pe.Formatter.Formatter;
 
+/** 
+ * Menu if language and student has been selected
+*/
 public class StudentSelectedMenu implements IMenu{
-
-    //Menu if language and student has been selected
-
   private Student student;
 
   public StudentSelectedMenu(Student student){
@@ -19,7 +19,6 @@ public class StudentSelectedMenu implements IMenu{
 
   @Override
   public String getMenuString() {
-    //Displays Menu with following commands
     StringBuilder sb = new StringBuilder();
     sb.append("What will you do?\n");
     sb.append("[1] - Search for student by id\n");
@@ -43,7 +42,7 @@ public class StudentSelectedMenu implements IMenu{
     }
     switch (action) {
         case 1:
-            //Select and returns a student or error message
+            //Select a student
             ps.println("Enter ID: ");
             int id;
             try {
@@ -83,7 +82,7 @@ public class StudentSelectedMenu implements IMenu{
             Menu.setMenu(new NoLanguageSelectedMenu());
             break;
         case 8:
-            //Instructs Menu to exit
+            //Ends Programm
             Menu.exit();
             break;
         default:

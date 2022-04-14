@@ -6,6 +6,9 @@ import java.io.PrintStream;
 
 import de.dhbw.t2inf3001.pe.Menu.IMenu;
 
+/**
+ * TestMenu for testing Menu independently of specific Menu-State
+ */
 public class TestMenu implements IMenu{
 
   @Override

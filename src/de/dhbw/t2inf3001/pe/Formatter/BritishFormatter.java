@@ -9,11 +9,6 @@ public class BritishFormatter extends GenericFormatter {
     public String formatPhoneNumber(PhoneNumber unformattedPhoneNumber) {
         StringBuilder builder = new StringBuilder();
         String seperator = " ";
-        /*
-            If we want to add CountryCode (Afterwards the tests need to be changed)
-            builder.append(unformattedPhoneNumber.countrycode);
-            builder.append(seperator);
-        */
 
         //areaCode.length() always needs to be the actual length +1 because the leading 0 is incorporated
         //in the areacode in the database
@@ -32,31 +27,43 @@ public class BritishFormatter extends GenericFormatter {
         switch(unformattedPhoneNumber.areaCode.length()){
             case 5:
                 if(unformattedPhoneNumber.subscriber.length() == 6){
+                    //For Area Code: (01xxx) 
+                    //Use: xxx xxx
                     builder.append(unformattedPhoneNumber.subscriber.substring(0,3));
                     builder.append(seperator);
                     builder.append(unformattedPhoneNumber.subscriber.substring(3));
                 }else{
+                    //For Area Code: (01xxx) 
+                    //Use: xx xxx
                     builder.append(unformattedPhoneNumber.subscriber.substring(0,2));
                     builder.append(seperator);
                     builder.append(unformattedPhoneNumber.subscriber.substring(2));
                 }
                 break;
             case 4:
+                //For Area Code: (01x1) 
+                //Use: xxx xxxx
                 builder.append(unformattedPhoneNumber.subscriber.substring(0,3));
                 builder.append(seperator);
                 builder.append(unformattedPhoneNumber.subscriber.substring(3));
                 break;
             case 3:
+                //For Area Code: (02x) 
+                //Use: xxxx xxxx
                 builder.append(unformattedPhoneNumber.subscriber.substring(0,4));
                 builder.append(seperator);
                 builder.append(unformattedPhoneNumber.subscriber.substring(4));
                 break;
             case 6:
                 if(unformattedPhoneNumber.subscriber.length() == 5){
+                    //For Area Code: (01xx xx) 
+                    //Use: xx xxx
                     builder.append(unformattedPhoneNumber.subscriber.substring(0,2));
                     builder.append(seperator);
                     builder.append(unformattedPhoneNumber.subscriber.substring(2));
                 }else{
+                    //For Area Code: (01xx xx) 
+                    //Use: xxxx
                     builder.append(unformattedPhoneNumber.subscriber);
                 }
                 break;
@@ -74,11 +81,6 @@ public class BritishFormatter extends GenericFormatter {
         builder.append(unformattedAddress.city);
         builder.append(newline);
         builder.append(unformattedAddress.zipCode);
-        /*
-            If we want to add Destination (Afterwards the tests need to be changed)
-            builder.append(newline);
-            builder.append(unformattedAddress.country);
-        */
 		return builder.toString();
     }
 

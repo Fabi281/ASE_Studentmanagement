@@ -15,7 +15,6 @@ import org.junit.Test;
 import de.dhbw.t2inf3001.pe.PhoneNumber;
 import de.dhbw.t2inf3001.pe.Student;
 import de.dhbw.t2inf3001.pe.Formatter.Formatter;
-import de.dhbw.t2inf3001.pe.FormatterTests.TestFormatter;
 import de.dhbw.t2inf3001.pe.Menu.Menu;
 import de.dhbw.t2inf3001.pe.Menu.NoLanguageSelectedMenu;
 import de.dhbw.t2inf3001.pe.Menu.StudentSelectedMenu;

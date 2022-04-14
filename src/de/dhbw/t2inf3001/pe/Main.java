@@ -15,10 +15,10 @@ public class Main {
 
 	private static final String ERROR_MESSAGE = "An unexpected error occured!";
 
+	/** 
+	 * Main Function that Displays Country Selection and Menu
+	 */
 	public static void main(String[] args) throws Exception {
-		/*
-		 * Main Function that Displays Country Selection and Menu
-		 */
 		System.out.println("Welcome to the DHBW Student Management System!");
 
 		Runtime.getRuntime().addShutdownHook(new Thread(() ->{
@@ -32,6 +32,9 @@ public class Main {
 			Menu.setMenu(new NoLanguageSelectedMenu());
 		}
 
+		/* 
+		Initialize BufferedReader and automatically closes it afterwards
+		*/
 		try (BufferedReader cin = new BufferedReader(new InputStreamReader(System.in))) {
 
 			while (Menu.shouldExit() == false) {
