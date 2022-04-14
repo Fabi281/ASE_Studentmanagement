@@ -14,9 +14,11 @@ public class GermanFormatter extends GenericFormatter {
 
         builder.append("(" + unformattedPhoneNumber.areaCode + ")");
 
-        //Source for these Formats: https://de.wikipedia.org/wiki/Rufnummer
+        //Source for these Formats: https://en.wikipedia.org/wiki/Telephone_numbers_in_Germany
         switch(unformattedPhoneNumber.areaCode.length()){
             case 3:
+                //For Area Code: (0xx) 
+                //Use: xxxx-xxxx
                 firstNumberHalf = unformattedPhoneNumber.subscriber.substring(0, 4);
                 secondNumberHalf = unformattedPhoneNumber.subscriber.substring(4);
 		        builder.append(seperator);
@@ -26,6 +28,8 @@ public class GermanFormatter extends GenericFormatter {
                 break;
             
             case 4:
+                //For Area Code:(0xxx)
+                //Use: xxxx-xxxx
                 firstNumberHalf = unformattedPhoneNumber.subscriber.substring(0, 4);
                 secondNumberHalf = unformattedPhoneNumber.subscriber.substring(4);
 		        builder.append(seperator);
@@ -35,6 +39,8 @@ public class GermanFormatter extends GenericFormatter {
                 break;
             
             case 5:
+                //For Area Code: (0xxxx)
+                //Use: xxx-xxxx
                 firstNumberHalf = unformattedPhoneNumber.subscriber.substring(0, 3);
                 secondNumberHalf = unformattedPhoneNumber.subscriber.substring(3);
 		        builder.append(seperator);
@@ -44,6 +50,8 @@ public class GermanFormatter extends GenericFormatter {
                 break;
             
             case 6:
+                //For Area Code: (0xxxxx) 
+                //Use: xx-xxxx
                 firstNumberHalf = unformattedPhoneNumber.subscriber.substring(0, 2);
                 secondNumberHalf = unformattedPhoneNumber.subscriber.substring(2);
 		        builder.append(seperator);
@@ -53,6 +61,8 @@ public class GermanFormatter extends GenericFormatter {
                 break;
 
             default:
+                //As default
+                //Use: xxxx-xxxx
                 firstNumberHalf = unformattedPhoneNumber.subscriber.substring(0, 4);
                 secondNumberHalf = unformattedPhoneNumber.subscriber.substring(4);
                 builder.append(seperator);

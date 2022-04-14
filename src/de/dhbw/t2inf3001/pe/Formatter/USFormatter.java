@@ -6,7 +6,7 @@ import de.dhbw.t2inf3001.pe.Student;
 
 public class USFormatter extends GenericFormatter {
 
-    
+    //Source for Format: https://support.twilio.com/hc/en-us/articles/223183008-Formatting-International-Phone-Numbers
     public String formatPhoneNumber(PhoneNumber unformattedPhoneNumber) {
         StringBuilder builder = new StringBuilder();
 		builder.append("(");

@@ -9,6 +9,8 @@ import de.dhbw.t2inf3001.pe.Formatter.Formatter;
 
 public class StudentSelectedMenu implements IMenu{
 
+    //Menu if language and student has been selected
+
   private Student student;
 
   public StudentSelectedMenu(Student student){
@@ -17,6 +19,7 @@ public class StudentSelectedMenu implements IMenu{
 
   @Override
   public String getMenuString() {
+    //Displays Menu with following commands
     StringBuilder sb = new StringBuilder();
     sb.append("What will you do?\n");
     sb.append("[1] - Search for student by id\n");
@@ -40,6 +43,7 @@ public class StudentSelectedMenu implements IMenu{
     }
     switch (action) {
         case 1:
+            //Select and returns a student or error message
             ps.println("Enter ID: ");
             int id;
             try {
@@ -59,21 +63,27 @@ public class StudentSelectedMenu implements IMenu{
             Menu.setMenu(new StudentSelectedMenu(newStudent));
             break;
         case 2:
+            //Displays infos about selected student based on the selected language Formatter
             ps.println(Formatter.formatInfo(student));
             break;
         case 3:
+            //Displays selected students address based on the selected language Formatter
             ps.println(Formatter.formatAddress(student.address()));
             break;
         case 4:
+            //Displays selected students phone number based on the selected language Formatter
             ps.println(Formatter.formatPhoneNumber(student.phone()));
             break;
         case 5:
+            //Displays students phone number based on the international Format
             ps.println(Formatter.formatPhoneNumberInternational(student.phone()));
             break;
         case 7:
+            //Switching Menu State to language Selection
             Menu.setMenu(new NoLanguageSelectedMenu());
             break;
         case 8:
+            //closes program
             System.exit(0);
             break;
         default:

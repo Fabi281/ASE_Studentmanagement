@@ -9,8 +9,11 @@ import de.dhbw.t2inf3001.pe.Formatter.Formatter;
 
 public class NoStudentSelectedMenu implements IMenu {
 
+    //Display Menu if a languafe has been selected, but no student has been selected
+
     @Override
     public String getMenuString(){
+        //Displays Menu with following commands
         StringBuilder sb = new StringBuilder();
         sb.append("What will you do?\n");
         sb.append("[1] - Search for student by id\n");

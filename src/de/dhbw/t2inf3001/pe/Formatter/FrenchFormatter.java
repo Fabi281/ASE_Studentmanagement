@@ -15,6 +15,7 @@ public class FrenchFormatter extends GenericFormatter {
         String remainingNumber = FullNumber.substring(2);
         builder.append(splitNumber); 
 
+        //Format used: 0x xx xx xx xx
         while (remainingNumber.length() >= 2){
             splitNumber = remainingNumber.substring(0, 2);
             remainingNumber = remainingNumber.substring(2);

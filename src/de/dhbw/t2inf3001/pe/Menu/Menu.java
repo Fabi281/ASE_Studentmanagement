@@ -12,6 +12,7 @@ public class Menu {
   protected static IMenu currentMenu;
 
   public static void setMenu(IMenu menu) {
+    //Switchting between Menu States
     currentMenu = menu;
   }
 
