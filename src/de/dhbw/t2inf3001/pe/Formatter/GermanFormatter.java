@@ -14,6 +14,7 @@ public class GermanFormatter extends GenericFormatter {
 
         builder.append("(" + unformattedPhoneNumber.areaCode + ")");
 
+        //Source for these Formats: https://de.wikipedia.org/wiki/Rufnummer
         switch(unformattedPhoneNumber.areaCode.length()){
             case 3:
                 firstNumberHalf = unformattedPhoneNumber.subscriber.substring(0, 4);
