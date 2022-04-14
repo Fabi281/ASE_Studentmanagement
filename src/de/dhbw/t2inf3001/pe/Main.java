@@ -27,6 +27,9 @@ public class Main {
 	public static GenericFormatter formatter;
 	
 	public static void main(String[] args) throws Exception {
+		/*
+		Main Function that Displays Country Selection and Menu
+		*/
 		System.out.println("Welcome to the DHBW Student Management System!");
 
 		setCountry(true);		
@@ -60,6 +63,10 @@ public class Main {
 	}
 
 	static private void setCountry(boolean firstRender) throws IOException{
+		/*
+		Function to set the current Country
+		Used to define the Country specific formatting
+		*/
 		try{
 			formatter = FormatterManager.getFormatter();
 		}catch(UnknownLanguageException | NoLanguageSpecifiedException e ){
@@ -74,18 +81,25 @@ public class Main {
 	}
 
 	static int readIntInput(BufferedReader br) throws IOException, NumberFormatException{
+		/*
+		Parses Input into an Integer, to prevent false variable errors
+		*/
 		String input = br.readLine();
 		return Integer.parseInt(input);
 	}
 
 	static MenuResult processMenuSelection(int action, Student selectedStudent, BufferedReader br, PrintStream ps) throws IOException {
+		/*
+		Process the Menu Selection and executes the coresponding Function.
+		Otherwise prints an error message
+		*/
 		MenuResult result = new MenuResult();
 		if(selectedStudent == null && Arrays.asList(2,3,4,5).contains(action)){
 			result.response = NO_STUDENT_SELECTED;
 			return result;
 		}
 		switch (action) {
-			case 1:
+			case 1: // ID Selection and return a Student
 				ps.println("Enter id: ");
 				int id;
 				try {
@@ -104,23 +118,23 @@ public class Main {
 				result.newStudent = newStudent;
 				result.response = "Successfully selected " + formatter.formatInfo(newStudent);
 				break;
-			case 2:
+			case 2: // Printing out Student Info
 				result.response = formatter.formatInfo(selectedStudent);
 				break;
-			case 3:
+			case 3: // Printing out Student Address
 				result.response = formatter.formatAddress(selectedStudent.address());
 				break;
-			case 4:
+			case 4: // Printing out Student Phonenumber
 				result.response = formatter.formatPhoneNumber(selectedStudent.phone());
 				break;
-			case 5:
+			case 5: // Printing out International Phonenumber
 				result.response = formatter.formatPhoneNumberInternational(selectedStudent.phone());
 				break;
-			case 7:
+			case 7: // Return to Country Selection
 				FormatterManager.deleteCountry();
 				setCountry(true);
 				break;
-			case 8:
+			case 8: // Closes Programm
 				System.exit(0);
 				break;
 			default:
@@ -132,6 +146,9 @@ public class Main {
 	}
 
 	private static void printMenu() {
+		/*
+		Displaying all Programm Functionalities
+		*/
 		System.out.println("What will you do?");
 		System.out.println("[1] - Search for student by id");
 		System.out.println("[2] - Display info");
