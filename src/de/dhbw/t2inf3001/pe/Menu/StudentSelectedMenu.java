@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.PrintStream;
 
 import de.dhbw.t2inf3001.pe.Student;
-import de.dhbw.t2inf3001.pe.Formatter.Formatter;
+import de.dhbw.t2inf3001.pe.Formatter.FormatterManager;
 
 /** 
  * Menu if language and student has been selected
@@ -58,24 +58,24 @@ public class StudentSelectedMenu implements IMenu{
                 ps.println(Menu.NONEXISTENT_ID);
                 break;
             }
-            ps.println("Successfully selected " + Formatter.formatInfo(newStudent));
+            ps.println("Successfully selected " + FormatterManager.formatInfo(newStudent));
             Menu.setMenu(new StudentSelectedMenu(newStudent));
             break;
         case 2:
             //Displays infos about selected student based on the selected language Formatter
-            ps.println(Formatter.formatInfo(student));
+            ps.println(FormatterManager.formatInfo(student));
             break;
         case 3:
             //Displays selected students address based on the selected language Formatter
-            ps.println(Formatter.formatAddress(student.address()));
+            ps.println(FormatterManager.formatAddress(student.address()));
             break;
         case 4:
             //Displays selected students phone number based on the selected language Formatter
-            ps.println(Formatter.formatPhoneNumber(student.phone()));
+            ps.println(FormatterManager.formatPhoneNumber(student.phone()));
             break;
         case 5:
             //Displays students phone number based on the international Format
-            ps.println(Formatter.formatPhoneNumberInternational(student.phone()));
+            ps.println(FormatterManager.formatPhoneNumberInternational(student.phone()));
             break;
         case 7:
             //Switching Menu State to language Selection

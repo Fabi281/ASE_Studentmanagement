@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.PrintStream;
 
 import de.dhbw.t2inf3001.pe.Student;
-import de.dhbw.t2inf3001.pe.Formatter.Formatter;
+import de.dhbw.t2inf3001.pe.Formatter.FormatterManager;
 
 /** 
  * Display Menu if a language has been selected, but no student has been selected
@@ -49,7 +49,7 @@ public class NoStudentSelectedMenu implements IMenu {
                 ps.println(Menu.NONEXISTENT_ID);
                 break;
             }
-            ps.println("Successfully selected " + Formatter.formatInfo(newStudent));
+            ps.println("Successfully selected " + FormatterManager.formatInfo(newStudent));
             Menu.setMenu(new StudentSelectedMenu(newStudent));
             break;
         case 7:

@@ -4,9 +4,9 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintStream;
 
-import de.dhbw.t2inf3001.pe.Formatter.Formatter;
-import de.dhbw.t2inf3001.pe.Formatter.Formatter.NoLanguageSpecifiedException;
-import de.dhbw.t2inf3001.pe.Formatter.Formatter.UnknownLanguageException;
+import de.dhbw.t2inf3001.pe.Formatter.FormatterManager;
+import de.dhbw.t2inf3001.pe.Formatter.FormatterManager.NoLanguageSpecifiedException;
+import de.dhbw.t2inf3001.pe.Formatter.FormatterManager.UnknownLanguageException;
 
 /** 
  * Menu if no language has been selected
@@ -25,7 +25,7 @@ public class NoLanguageSelectedMenu implements IMenu{
         Menu.exit();
         return;
       }
-			Formatter.setCountry(input);
+			FormatterManager.setCountry(input);
       Menu.setMenu(new NoStudentSelectedMenu());
 		}catch(UnknownLanguageException | NoLanguageSpecifiedException e ){
 			ps.println(Menu.INVALID_INPUT);
