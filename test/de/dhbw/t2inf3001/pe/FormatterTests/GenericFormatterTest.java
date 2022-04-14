@@ -5,7 +5,6 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 import de.dhbw.t2inf3001.pe.PhoneNumber;
-import de.dhbw.t2inf3001.pe.Formatter.TestFormatter;
 
 public class GenericFormatterTest {
   
